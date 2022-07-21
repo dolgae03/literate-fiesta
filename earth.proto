@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+service Satrac{
+  rpc SendTrajectoryInfo (SatTrajectoryInfo) returns (Response_code) {}
+  rpc SendAttitudeInfo (SatAttitudeInfo) returns (Response_code) {}
+  rpc SendGroundStationInfo (GroundStationInfo) returns (Response_code) {}
+  rpc SendSatVecInfo (stream SatVectorInfo) returns (Response_code) {}
+  rpc ChangeUrl (Url) returns (Response_code) {}
+  rpc StartDraw (Empty) returns (Response_code) {}
+}
+
+message SatTrajectoryInfo {
+  SatDate t = 1;
+  int32 sat_num = 2;
+}
+message GroundStationInfo {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+  float degree = 4;
+}
+message Url {
+  string url = 1;
+}
+message SatDate {
+  int32 y = 1;
+  int32 mo = 2;
+  int32 d = 3;
+  int32 h = 4;
+  int32 m = 5;
+  int32 s = 6;
+}
+message TLEInfo {
+  string line1 = 1;
+  string line2 = 2;
+  string line3 = 3;
+}
+message SatAttitudeInfo {
+  float q1 = 1;
+  float q2 = 2;
+  float q3 = 3;
+  float q4 = 4;
+}
+message SatVectorInfo {
+  float u = 1;
+  float v = 2;
+  float w = 3;
+}
+message Response_code {
+  string message = 1;
+}
+
+message Empty {}

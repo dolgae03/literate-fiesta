@@ -2,7 +2,7 @@ from concurrent import futures
 from locale import normalize
 import logging
 
-from skyfield.api import load, wgs84
+from skyfield.api import Loader, wgs84
 
 import grpc
 import earth_pb2
@@ -15,11 +15,12 @@ import numpy as np
 
 class Satrac(earth_pb2_grpc.SatracServicer):
     def __init__(self):
+        self.load = Loader('./data')
         self.station_url = 'https://celestrak.org/NORAD/elements/gp.php?INTDES=2022-072'
         self.view_degree = 0
         self.earth_radius = 6378.1
         self.sat_vec = []
-        self.eph = load('de421.bsp')
+        self.eph = self.load('de421.bsp')
         
         self.Trajectoryflag = False
         self.GroundStationinfoflag = False
@@ -92,14 +93,14 @@ class Satrac(earth_pb2_grpc.SatracServicer):
         return earth_pb2.Response_code(message = 'Success : SendGroundStationInfo')
     
     def SendTrajectoryInfo(self, request, context):
-        ts = load.timescale()
+        ts = self.load.timescale()
         self.now_time = ts.utc(request.t.y, request.t.mo, request.t.d, request.t.h, request.t.m, request.t.s)
         self.end_time = ts.utc(request.t.y, request.t.mo, request.t.d, request.t.h, request.t.m, request.t.s + 10000)
         self.time_gap = ts.utc(request.t.y, request.t.mo, request.t.d, request.t.h, request.t.m, range(request.t.s,request.t.s+10000,1))
         sat_num = request.sat_num
 
         try:
-            satellites = load.tle_file(self.station_url, reload=True)
+            satellites = self.load.tle_file(self.station_url, reload=True)
             self.satellite = {sat.model.satnum: sat for sat in satellites}[sat_num]
 
         except Exception as e :
@@ -187,7 +188,7 @@ class Satrac(earth_pb2_grpc.SatracServicer):
         for each_trac in self.sat_trac_communication:
             pl.add_lines(each_trac, width = 5, color = 'yellow')
         
-        color = ['red','blue','green','yellow','purple','orange', 'white', 'skyblue']
+        color = ['red','green','blue','yellow','purple','orange', 'white', 'skyblue']
 
         reader = pv.get_reader('./data/satellite.stl')
         sat_mesh = reader.read()
@@ -197,10 +198,6 @@ class Satrac(earth_pb2_grpc.SatracServicer):
         gs_mesh = reader.read()
         gs_scale = 2
         gs_dcm = rotation_matrix_from_vectors(np.array([0,1,0]), np.array(self.gs_location))    
-
-        # 0, 1, 0
-
-        print(self.gs_location.shape)
 
         for i in range(gs_mesh.points.shape[0]):
             gs_mesh.points[i] = (gs_dcm @ (gs_mesh.points[i].T)).T * gs_scale + self.gs_location
