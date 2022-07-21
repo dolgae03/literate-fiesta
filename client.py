@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import logging
 import math
  
@@ -13,7 +11,7 @@ def vec_stream_generator(vec):
         yield earth_pb2.SatVectorInfo(u = ele[0], v = ele[1], w = ele[2])
 
 
-def run(port):
+def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = earth_pb2_grpc.SatracStub(channel)
 
@@ -38,4 +36,4 @@ def run(port):
 
 if __name__ == '__main__':
     logging.basicConfig()
-    run('')
+    run()

@@ -14,11 +14,10 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0b\x65\x61rth.proto\"\x14\n\x04Mode\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\"9\n\x11SatTrajectoryInfo\x12\x13\n\x01t\x18\x01 \x01(\x0b\x32\x08.SatDate\x12\x0f\n\x07sat_num\x18\x02 \x01(\x05\"D\n\x11GroundStationInfo\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\x12\x0e\n\x06\x64\x65gree\x18\x04 \x01(\x02\"\x12\n\x03Url\x12\x0b\n\x03url\x18\x01 \x01(\t\"L\n\x07SatDate\x12\t\n\x01y\x18\x01 \x01(\x05\x12\n\n\x02mo\x18\x02 \x01(\x05\x12\t\n\x01\x64\x18\x03 \x01(\x05\x12\t\n\x01h\x18\x04 \x01(\x05\x12\t\n\x01m\x18\x05 \x01(\x05\x12\t\n\x01s\x18\x06 \x01(\x05\"6\n\x07TLEInfo\x12\r\n\x05line1\x18\x01 \x01(\t\x12\r\n\x05line2\x18\x02 \x01(\t\x12\r\n\x05line3\x18\x03 \x01(\t\"A\n\x0fSatAttitudeInfo\x12\n\n\x02q1\x18\x01 \x01(\x02\x12\n\n\x02q2\x18\x02 \x01(\x02\x12\n\n\x02q3\x18\x03 \x01(\x02\x12\n\n\x02q4\x18\x04 \x01(\x02\"0\n\rSatVectorInfo\x12\t\n\x01u\x18\x01 \x01(\x02\x12\t\n\x01v\x18\x02 \x01(\x02\x12\t\n\x01w\x18\x03 \x01(\x02\" \n\rResponse_code\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xbd\x02\n\x06Satrac\x12:\n\x12SendTrajectoryInfo\x12\x12.SatTrajectoryInfo\x1a\x0e.Response_code\"\x00\x12\x36\n\x10SendAttitudeInfo\x12\x10.SatAttitudeInfo\x1a\x0e.Response_code\"\x00\x12=\n\x15SendGroundStationInfo\x12\x12.GroundStationInfo\x1a\x0e.Response_code\"\x00\x12\x34\n\x0eSendSatVecInfo\x12\x0e.SatVectorInfo\x1a\x0e.Response_code\"\x00(\x01\x12#\n\tChangeUrl\x12\x04.Url\x1a\x0e.Response_code\"\x00\x12%\n\tStartDraw\x12\x06.Empty\x1a\x0e.Response_code\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0b\x65\x61rth.proto\"9\n\x11SatTrajectoryInfo\x12\x13\n\x01t\x18\x01 \x01(\x0b\x32\x08.SatDate\x12\x0f\n\x07sat_num\x18\x02 \x01(\x05\"D\n\x11GroundStationInfo\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\x12\x0e\n\x06\x64\x65gree\x18\x04 \x01(\x02\"\x12\n\x03Url\x12\x0b\n\x03url\x18\x01 \x01(\t\"L\n\x07SatDate\x12\t\n\x01y\x18\x01 \x01(\x05\x12\n\n\x02mo\x18\x02 \x01(\x05\x12\t\n\x01\x64\x18\x03 \x01(\x05\x12\t\n\x01h\x18\x04 \x01(\x05\x12\t\n\x01m\x18\x05 \x01(\x05\x12\t\n\x01s\x18\x06 \x01(\x05\"6\n\x07TLEInfo\x12\r\n\x05line1\x18\x01 \x01(\t\x12\r\n\x05line2\x18\x02 \x01(\t\x12\r\n\x05line3\x18\x03 \x01(\t\"A\n\x0fSatAttitudeInfo\x12\n\n\x02q1\x18\x01 \x01(\x02\x12\n\n\x02q2\x18\x02 \x01(\x02\x12\n\n\x02q3\x18\x03 \x01(\x02\x12\n\n\x02q4\x18\x04 \x01(\x02\"0\n\rSatVectorInfo\x12\t\n\x01u\x18\x01 \x01(\x02\x12\t\n\x01v\x18\x02 \x01(\x02\x12\t\n\x01w\x18\x03 \x01(\x02\" \n\rResponse_code\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x07\n\x05\x45mpty2\xbd\x02\n\x06Satrac\x12:\n\x12SendTrajectoryInfo\x12\x12.SatTrajectoryInfo\x1a\x0e.Response_code\"\x00\x12\x36\n\x10SendAttitudeInfo\x12\x10.SatAttitudeInfo\x1a\x0e.Response_code\"\x00\x12=\n\x15SendGroundStationInfo\x12\x12.GroundStationInfo\x1a\x0e.Response_code\"\x00\x12\x34\n\x0eSendSatVecInfo\x12\x0e.SatVectorInfo\x1a\x0e.Response_code\"\x00(\x01\x12#\n\tChangeUrl\x12\x04.Url\x1a\x0e.Response_code\"\x00\x12%\n\tStartDraw\x12\x06.Empty\x1a\x0e.Response_code\"\x00\x62\x06proto3')
 
 
 
-_MODE = DESCRIPTOR.message_types_by_name['Mode']
 _SATTRAJECTORYINFO = DESCRIPTOR.message_types_by_name['SatTrajectoryInfo']
 _GROUNDSTATIONINFO = DESCRIPTOR.message_types_by_name['GroundStationInfo']
 _URL = DESCRIPTOR.message_types_by_name['Url']
@@ -28,13 +27,6 @@ _SATATTITUDEINFO = DESCRIPTOR.message_types_by_name['SatAttitudeInfo']
 _SATVECTORINFO = DESCRIPTOR.message_types_by_name['SatVectorInfo']
 _RESPONSE_CODE = DESCRIPTOR.message_types_by_name['Response_code']
 _EMPTY = DESCRIPTOR.message_types_by_name['Empty']
-Mode = _reflection.GeneratedProtocolMessageType('Mode', (_message.Message,), {
-  'DESCRIPTOR' : _MODE,
-  '__module__' : 'earth_pb2'
-  # @@protoc_insertion_point(class_scope:Mode)
-  })
-_sym_db.RegisterMessage(Mode)
-
 SatTrajectoryInfo = _reflection.GeneratedProtocolMessageType('SatTrajectoryInfo', (_message.Message,), {
   'DESCRIPTOR' : _SATTRAJECTORYINFO,
   '__module__' : 'earth_pb2'
@@ -102,26 +94,24 @@ _SATRAC = DESCRIPTOR.services_by_name['Satrac']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _MODE._serialized_start=15
-  _MODE._serialized_end=35
-  _SATTRAJECTORYINFO._serialized_start=37
-  _SATTRAJECTORYINFO._serialized_end=94
-  _GROUNDSTATIONINFO._serialized_start=96
-  _GROUNDSTATIONINFO._serialized_end=164
-  _URL._serialized_start=166
-  _URL._serialized_end=184
-  _SATDATE._serialized_start=186
-  _SATDATE._serialized_end=262
-  _TLEINFO._serialized_start=264
-  _TLEINFO._serialized_end=318
-  _SATATTITUDEINFO._serialized_start=320
-  _SATATTITUDEINFO._serialized_end=385
-  _SATVECTORINFO._serialized_start=387
-  _SATVECTORINFO._serialized_end=435
-  _RESPONSE_CODE._serialized_start=437
-  _RESPONSE_CODE._serialized_end=469
-  _EMPTY._serialized_start=471
-  _EMPTY._serialized_end=478
-  _SATRAC._serialized_start=481
-  _SATRAC._serialized_end=798
+  _SATTRAJECTORYINFO._serialized_start=15
+  _SATTRAJECTORYINFO._serialized_end=72
+  _GROUNDSTATIONINFO._serialized_start=74
+  _GROUNDSTATIONINFO._serialized_end=142
+  _URL._serialized_start=144
+  _URL._serialized_end=162
+  _SATDATE._serialized_start=164
+  _SATDATE._serialized_end=240
+  _TLEINFO._serialized_start=242
+  _TLEINFO._serialized_end=296
+  _SATATTITUDEINFO._serialized_start=298
+  _SATATTITUDEINFO._serialized_end=363
+  _SATVECTORINFO._serialized_start=365
+  _SATVECTORINFO._serialized_end=413
+  _RESPONSE_CODE._serialized_start=415
+  _RESPONSE_CODE._serialized_end=447
+  _EMPTY._serialized_start=449
+  _EMPTY._serialized_end=456
+  _SATRAC._serialized_start=459
+  _SATRAC._serialized_end=776
 # @@protoc_insertion_point(module_scope)
